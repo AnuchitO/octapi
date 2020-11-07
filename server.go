@@ -31,6 +31,11 @@ func createTodosHandler(c *gin.Context) {
 		return
 	}
 
+	if t.Status == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "status is required"})
+		return
+	}
+
 	id := len(todos)
 	id++
 	t.ID = id
