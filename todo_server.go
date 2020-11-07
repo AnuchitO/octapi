@@ -30,13 +30,14 @@ func todoHandler(w http.ResponseWriter, req *http.Request) {
 			return
 		}
 
-		fmt.Printf("body : % #v\n", t)
+		fmt.Printf("body : %#v\n", t)
 
 		fmt.Fprintf(w, "hello %s created todos", method)
 		return
 	}
 
-	fmt.Fprintf(w, "hello %s todos", method)
+	w.Header().Set("content-type", "application/json")
+	fmt.Fprintf(w, "{\"method\": \"%s\"}", method)
 }
 
 func main() {
