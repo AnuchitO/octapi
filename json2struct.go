@@ -11,7 +11,7 @@ type Todo struct {
 	Status string `json:"status"`
 }
 
-func main(){
+func main() {
 	data := []byte(`{
             "id": 1,
             "title": "pay credit card",
