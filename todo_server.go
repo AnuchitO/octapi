@@ -7,7 +7,12 @@ import (
 )
 
 func todoHandler(w http.ResponseWriter, req *http.Request) {
-	method := "GET"
+	method := req.Method
+	if method == "POST" {
+		fmt.Fprintf(w, "hello %s created todos", method)
+		return
+	}
+
 	fmt.Fprintf(w, "hello %s todos", method)
 }
 
