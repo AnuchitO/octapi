@@ -14,6 +14,8 @@ type Todo struct {
 	Status string `json:"status"`
 }
 
+var todos []Todo
+
 func todoHandler(w http.ResponseWriter, req *http.Request) {
 	method := req.Method
 	if method == "POST" {
@@ -29,6 +31,8 @@ func todoHandler(w http.ResponseWriter, req *http.Request) {
 			fmt.Fprintf(w, "error : %v", err)
 			return
 		}
+
+		todos = append(todos, t)
 
 		fmt.Printf("body : %#v\n", t)
 
