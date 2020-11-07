@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 )
@@ -9,6 +10,14 @@ import (
 func todoHandler(w http.ResponseWriter, req *http.Request) {
 	method := req.Method
 	if method == "POST" {
+		body, err := ioutil.ReadAll(req.Body)
+		if err != nil {
+			fmt.Fprintf(w, "error : %v", err)
+			return
+		}
+
+		fmt.Printf("body : %s\n", body)
+
 		fmt.Fprintf(w, "hello %s created todos", method)
 		return
 	}
