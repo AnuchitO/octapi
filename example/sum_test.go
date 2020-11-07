@@ -1,4 +1,4 @@
-package octapi
+package main
 
 import "testing"
 
