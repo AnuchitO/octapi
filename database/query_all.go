@@ -10,6 +10,11 @@ import (
 	_ "github.com/lib/pq"
 )
 
+type Todo struct {
+	ID int
+	Title string
+	Status string
+}
 func main() {
 	db, err := sql.Open("postgres", os.Getenv("DATABASE_URL"))
 	if err != nil {
@@ -27,6 +32,8 @@ func main() {
 	if err != nil {
 		log.Fatal("can't query all todos", err)
 	}
+
+	var todos []Todo
 	for rows.Next() {
 		var id int
 		var title, status string
@@ -34,9 +41,9 @@ func main() {
 		if err != nil {
 			log.Fatal("can't Scan row into variable", err)
 		}
-		fmt.Println(id, title, status)
+		todos = append(todos, Todo{ID: id, Title: title, Status: status})
 	}
 
-	fmt.Println("query all todos success")
+	fmt.Printf("query all todos success %#v\n", todos)
 }
 
