@@ -35,13 +35,13 @@ func main() {
 
 	var todos []Todo
 	for rows.Next() {
-		var id int
-		var title, status string
-		err := rows.Scan(&id, &title, &status)
+		t := Todo{}
+		err := rows.Scan(&t.ID, &t.Title, &t.Status)
 		if err != nil {
 			log.Fatal("can't Scan row into variable", err)
 		}
-		todos = append(todos, Todo{id, title, status})
+
+		todos = append(todos, t)
 	}
 
 	fmt.Printf("query all todos success %#v\n", todos)
