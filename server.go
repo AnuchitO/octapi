@@ -47,7 +47,12 @@ func createTodosHandler(c *gin.Context) {
 func main() {
 	r := gin.Default()
 	r.GET("/todos", getTodosHandler)
+	r.GET("/todos/:id", getTodosHandler)
 	r.POST("/todos", createTodosHandler)
+	r.PUT("/todos/:id", createTodosHandler)
 
 	r.Run(":1234")
 }
+
+
+
