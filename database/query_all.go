@@ -41,7 +41,7 @@ func main() {
 		if err != nil {
 			log.Fatal("can't Scan row into variable", err)
 		}
-		todos = append(todos, Todo{ID: id, Title: title, Status: status})
+		todos = append(todos, Todo{id, title, status})
 	}
 
 	fmt.Printf("query all todos success %#v\n", todos)
