@@ -21,6 +21,12 @@ func helloHandler(c *gin.Context) {
 
 func authen(c *gin.Context) {
 	log.Println("start middleware")
+	authKey := c.GetHeader("Authorization")
+	if authKey != "Bearer token123" {
+		c.JSON(http.StatusUnauthorized, http.StatusText(http.StatusUnauthorized))
+		//c.Abort()
+		return
+	}
 	c.Next()
 	log.Println("end middleware")
 }
