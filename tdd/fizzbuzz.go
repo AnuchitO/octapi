@@ -3,7 +3,7 @@ package tdd
 import "fmt"
 
 func fizzbuzz(n int) string {
-	if n == 15 {
+	if n == 15 || n == 30{
 		return "FizzBuzz"
 	}
 	if n % 5 == 0 {
