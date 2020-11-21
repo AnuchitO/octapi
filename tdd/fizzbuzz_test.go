@@ -33,3 +33,11 @@ func TestShouldReturn4WhenInput4(t *testing.T){
 		t.Errorf("exected %s but got %s", "4", r)
 	}
 }
+
+func TestShouldReturn5WhenInput5(t *testing.T){
+	r := fizzbuzz(5)
+
+	if r != "Buzz" {
+		t.Errorf("exected %s but got %s", "Buzz", r)
+	}
+}
