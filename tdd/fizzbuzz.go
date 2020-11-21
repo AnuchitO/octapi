@@ -1,17 +1,31 @@
 package tdd
 
 import "fmt"
-
+// TDD
+// NO IF -- allow 1 if
+// NO switch
 func fizzbuzz(n int) string {
-	if n == 15 || n == 30{
+	if isFizzBuzz(n) {
 		return "FizzBuzz"
 	}
-	if n % 5 == 0 {
+	if isBuzz(n) {
 		return "Buzz"
 	}
-	if n % 3 == 0 {
+	if isFizz(n) {
 		return "Fizz"
 	}
 
 	return fmt.Sprint(n)
+}
+
+func isFizzBuzz(n int) bool {
+	return n%15 == 0
+}
+
+func isBuzz(n int) bool {
+	return n%5 == 0
+}
+
+func isFizz(n int) bool {
+	return n%3 == 0
 }
