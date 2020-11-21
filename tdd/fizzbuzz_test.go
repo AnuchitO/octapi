@@ -9,3 +9,11 @@ func TestShouldReturn1WhenInput1(t *testing.T){
  	t.Errorf("exected %s but got %s", "1", r)
  }
 }
+
+func TestShouldReturn2WhenInput2(t *testing.T){
+	r := fizzbuzz(2)
+
+	if r != "2" {
+		t.Errorf("exected %s but got %s", "2", r)
+	}
+}
